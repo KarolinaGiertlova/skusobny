@@ -1,4 +1,4 @@
 int main () {
-	printf("skusobny folder");
+	printf("skusobny test");
 	return 0;
 }
