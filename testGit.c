@@ -1,4 +1,4 @@
 int main () {
-	printf("skusobny test");
+	printf("skusam novu vetvu");
 	return 0;
 }
