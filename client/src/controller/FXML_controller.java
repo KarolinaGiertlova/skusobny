@@ -265,10 +265,11 @@ public class FXML_controller implements Initializable {
 
 
 
-    private void nastavJazyk(Locale locale) {
-
+    private void nastavJazyk(Locale locale) { // nastavi jazyk podla doruceneho parametra
         settings.put("language", locale.getLanguage());
         settings.put("country", locale.getCountry());
+        System.out.println("jazyk bol nastaveny " + locale.getLanguage());
+
         try {
             settings.store(new FileOutputStream("settings.properties"), null);
         } catch (Exception e) {
