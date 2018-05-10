@@ -149,32 +149,27 @@ public class FXML_controller implements Initializable {
                         String liecivy_ucinok = server.liecivyUcinokLieku(id_kliknuty);
 
                         String text = String.format("%s: %d%n"+"%s: %s%n"+"%s: %.2f%n"+"%s: %.2f%n"+"%s: %s%n",
-                                bundle.getString(""),
+                                bundle.getString("detailID"),
                                 liek.getId(),
-                                bundle.getString(""),
+                                bundle.getString("detailNazov"),
                                 liek.getNazov(),
-                                bundle.getString(""),
+                                bundle.getString("detailCena"),
                                 liek.getCena(),
-                                bundle.getString(""),
+                                bundle.getString("detailHmotnost"),
                                 liek.getHmotnost(),
-                                bundle.getString(""),
+                                bundle.getString("detailDatumExspiracie"),
                                 liek.getDatumExspiracie().toString()
                         );
-//                                "Id: " + liek.getId() +
-//                                "\nNazov: " + liek.getNazov() +
-//                                "\nCena: " + liek.getCena() +
-//                                "\nHmotnost(gram): " + liek.getHmotnost() +
-//                                "\nDatum exspiracie: " + liek.getDatumExspiracie();
 
                         if (vedlajsi_ucinok == null)
-                            vedlajsi_ucinok = bundle.getString("");
+                            vedlajsi_ucinok = bundle.getString("detailNevyplnene");
 
-                        text += "\n"+bundle.getString("")+": " + vedlajsi_ucinok;
+                        text += "\n"+bundle.getString("detailVedlajsiUcinok")+": " + vedlajsi_ucinok;
 
                         if (liecivy_ucinok == null)
-                            liecivy_ucinok = bundle.getString("");
+                            liecivy_ucinok = bundle.getString("detailNevyplnene");
 
-                        text += "\n"+bundle.getString("")+": " + liecivy_ucinok;
+                        text += "\n"+bundle.getString("detailLiecivyUcinok")+": " + liecivy_ucinok;
 
                         textDetail.setText(text);
 
