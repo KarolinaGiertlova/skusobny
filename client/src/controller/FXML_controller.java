@@ -23,9 +23,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class FXML_controller implements Initializable {
-
-    //ArrayList<Liek> lieky = new ArrayList<>();
-    //ArrayList<PocetLiekov> poctyLiekov;
     int id_kliknuty;
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
@@ -329,13 +326,12 @@ public class FXML_controller implements Initializable {
         TableColumn<PocetLiekov, ?> secondC = zoradovaciaTabulka.getColumns().get(1);
         secondC.setCellValueFactory(new PropertyValueFactory("pocetLieku"));
 
-        //nastavenieSk();
         try {
             settings = new Properties();
-            InputStream in = new FileInputStream("settings.properties");
+            InputStream in = new FileInputStream("settings.properties");  //ulozenie jazyka, ktory bol naposledy spusteny
             settings.load(in);
         } catch (Exception e) {
-            settings = new Properties();
+            settings = new Properties(); //ak je to potrebne ulozi sa default slovensky
             settings.put("language", "sk");
             settings.put("country", "SK");
         }

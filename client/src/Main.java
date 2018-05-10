@@ -11,12 +11,7 @@ import java.sql.*;
 import java.util.Random;
 import java.util.ResourceBundle;
 
-//import static javafx.application.Application.launch;
-
-
 public class Main extends Application{
-
-
 
     public static void main(String[] args) {
         launch(args);
@@ -24,12 +19,9 @@ public class Main extends Application{
 
     @Override
     public void start(Stage stage) throws Exception {
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("./FXML.fxml"));
-//        loader.setResources(ResourceBundle.getBundle("/bundle"));
         Parent root = FXMLLoader.load(getClass().getResource("/FXML.fxml"));
         Scene scene = new Scene(root, 1280, 650);
         stage.setScene(scene);
         stage.show();
-
     }
 }

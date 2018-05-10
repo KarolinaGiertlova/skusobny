@@ -17,7 +17,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Server extends UnicastRemoteObject implements ServerInterface {
+public class Server extends UnicastRemoteObject implements ServerInterface { // hlavna aplikacna logika
     private static final Logger log = LoggerFactory.getLogger(Server.class);
 
     public static void main(String[] args) throws RemoteException {
@@ -72,6 +72,7 @@ public class Server extends UnicastRemoteObject implements ServerInterface {
             return vedlajsi_ucinok;
 
         } catch (Exception e) {
+            log.error("Nepodarilo sa ziskat vedlajsi ucinok", e);
             throw new RemoteException(e.getMessage());
         }
     }
@@ -92,6 +93,7 @@ public class Server extends UnicastRemoteObject implements ServerInterface {
             return liecivy_ucinok;
 
         } catch (Exception e) {
+            log.error("Nepodarilo sa ziskat liecivy ucinok", e);
             throw new RemoteException(e.getMessage());
         }
     }
@@ -104,6 +106,7 @@ public class Server extends UnicastRemoteObject implements ServerInterface {
             st.setInt(1, id);
             st.executeUpdate();
         } catch (Exception e) {
+            log.error("Nepodarilo sa zmazat liek", e);
             throw new RemoteException(e.getMessage());
         }
     }
@@ -129,6 +132,7 @@ public class Server extends UnicastRemoteObject implements ServerInterface {
             return lieky;
 
         } catch (Exception e) {
+            log.error("Nepodarilo sa vyhladat lieky", e);
             throw new RemoteException(e.getMessage());
         }
     }
@@ -146,7 +150,7 @@ public class Server extends UnicastRemoteObject implements ServerInterface {
                 poctyLiekov.add(pocetLieku);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error("Nepodarilo sa zoradit lieky", e);
             throw new RemoteException(e.getMessage());
         }
         return poctyLiekov;
@@ -168,7 +172,7 @@ public class Server extends UnicastRemoteObject implements ServerInterface {
 
             st.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error("Nepodarilo sa pridat liek", e);
             throw new RemoteException(e.getMessage());
         }
 
@@ -187,7 +191,7 @@ public class Server extends UnicastRemoteObject implements ServerInterface {
                 lieky.add(liek);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error("Nepodarilo sa vyfiltrovat lieky", e);
             throw new RemoteException(e.getMessage());
         }
 
@@ -210,7 +214,7 @@ public class Server extends UnicastRemoteObject implements ServerInterface {
             st.executeUpdate();
         }
         catch (SQLException e) {
-            e.printStackTrace();
+            log.error("Nepodarilo sa upravit liek", e);
             throw new RemoteException(e.getMessage());
         }
     }

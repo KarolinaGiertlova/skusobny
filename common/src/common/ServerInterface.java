@@ -8,7 +8,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
 
-public interface ServerInterface extends Remote {
+public interface ServerInterface extends Remote { // rozhranie, v ktorom su definovane dostupne metody
     // vsetky metody musia throws RemoteException;
     Liek liekPodlaId(int id) throws RemoteException;
     List<Liek> lieky(int limit, int offset) throws RemoteException;
